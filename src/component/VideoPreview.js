@@ -5,10 +5,11 @@ function VideoPreview(props){
    const viewCount=props.viewCount;
    const logo=props.logo;
    const thumbnail= props.thumbnail;
+   const id = props.id;
     return (
         <div>
 <div className="video1-1">
-   <Link to="video">
+   <Link to={"/video/" + id}>
 <img src={thumbnail}
  height= "162.5px" width="400px" /> </Link>
 </div>

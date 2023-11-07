@@ -179,8 +179,10 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    border-top: none;
     border: 2px double black;
-    background-color: aqua;
+    background-color: white;
+    
 
 }
 .main-right-top{

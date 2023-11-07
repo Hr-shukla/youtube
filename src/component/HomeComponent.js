@@ -1,6 +1,7 @@
 import "./HomeComponent.css";
 import VideoPreview from "./VideoPreview";
 import videos from "./video.json"; 
+import logo from "./youtubelogo.png"
 
 function HomeComponent(){
     return (
@@ -28,7 +29,7 @@ function HomeComponent(){
            
            <div className="header">  <div className="logo">
                
-               <div className="logo2"><img src="youtube.png.png" alt="logo" height="50px" width="130px"/></div>
+               <div className="logo2"><img src={logo}alt="logo" height="50px" width="130px"/></div>
            </div>
            <div className="search">
                <div className="search1">
@@ -69,8 +70,10 @@ function HomeComponent(){
                 title={video.title}
                 thumbnail={video.thumbnail.url}
                 channelName={video.channelName}
-                viewsCount={video.views}
-                uploded={video.uploadedAt} />
+                viewCount={video.views}
+                uploded={video.uploadedAt}
+                id={video.id}
+             />
 
             })
            }

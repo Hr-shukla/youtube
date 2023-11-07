@@ -1,6 +1,16 @@
+import { useParams } from "react-router-dom";
 import Header from "./Header";
-import "./VideoPage.css"
+import SuggestedVideo from "./SuggestedVideo";
+import "./VideoPage.css";
+import videos from "./video.json";
 function VideoPage(){
+    const Params = useParams();
+    const id = Params.id;
+    function  finderFunction(video){
+        return video.id == id ;
+    }
+
+    const video = videos.find(finderFunction);
 return(
 
 <div className="">
@@ -10,16 +20,16 @@ return(
             <div className="VMain">
                 <div className="VVideo">
                     <div className="VPlay">
-<iframe className="iframe" src="https://www.youtube.com/embed/HF-nGmIeoGU?si=ivYoq86H6dw8MDcZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                    </div>
+<iframe className="iframe" src={"https://www.youtube.com/embed/" + id + "?rel=0&mute=1&autoplay=1"} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>                    </div>
                 </div>
                 <div className="VExtra">
-                <div className="VTitle"><h3>Pawansut | Narci | Hindi Rap Song | Prod. By Narci</h3></div>
+                <div className="VTitle">{video.title}</div>
                 <div className="VSubs">
                     <div className="VChannel">
                         <div className="VLogo"></div>
                         <div className="VName">
-                            <div className="VCName">Narci</div>
-                            <div className="VCSubs">16.5M Subscriber</div>
+                            <div className="VCName">{video.channelName}</div>
+                            <div className="VCSubs">{video.views}</div>
                         </div>
                         <div className="VSubscriber"><p><center>Subscribe</center></p></div>
                     </div>
@@ -36,10 +46,30 @@ return(
                     </div>
                    
                 </div>
-                <div className="VDescription">description</div>
+                <div className="VDescription">description
+                </div>
                 </div>
             </div>
             <div className="VSide">
+            {
+            videos.map(function(video){
+                return <SuggestedVideo 
+                title={video.title}
+                thumbnail={video.thumbnail.url}
+                channelName={video.channelName}
+                viewCount={video.views}
+                uploded={video.uploadedAt}
+                 />
+
+            })}
+            <div className="suggestions">
+            <SuggestedVideo />
+          <SuggestedVideo />
+          <SuggestedVideo />
+          <SuggestedVideo />
+          <SuggestedVideo />
+          <SuggestedVideo />
+        </div>
             </div>
            
                 </div> 
