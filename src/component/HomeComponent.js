@@ -4,6 +4,14 @@ import videos from "./video.json";
 import logo from "./youtubelogo.png"
 
 function HomeComponent(){
+    function onSignin(){
+        window.location.href="/login";
+    }
+    const isLoggedIn = localStorage.getItem("loggedIn");
+    function onLogout(){
+        localStorage.setItem("loggedIn",false);
+        window.location.href="/";
+    }
     return (
         <div className="home">
         <div className="sidebar"> 
@@ -45,7 +53,13 @@ function HomeComponent(){
                </div>
                <div className="menu"><i className="fa-solid fa-bars"></i></div>
                <div className="bell"><i className="fa-solid fa-bell"></i></div>
-               <div className="id"><i className="fa-solid fa-user"></i></div>
+               <div className="id">
+                {isLoggedIn == 'true' ? (<div> <button onClick={onLogout}>
+                    <i class="fa-solid fa-right-from-bracket"></i></button>
+                     </div>) : (
+                <button onClick={onSignin}>
+                <i className="fa-solid fa-user"></i></button>)}
+               </div>
            </div>
            </div>
            <div className="mainTitle">  <div className="main-right-top">
@@ -87,31 +101,9 @@ function HomeComponent(){
                title=" this is 1st video" channelName="Mrwhosetheboss" viewCount="16.9M"/>;
 
                </div>
-               <div className="">  
-                <VideoPreview title=" this is 1st video" thumbnail={"https://i.ytimg.com/vi/1OQgu41vesY/sddefault.jpg"} channelName="harsh mohan" viewCount="1.3M views . 18 hours ago" />;
-
-               </div>
-               <div className="">  
-                <VideoPreview  title=" this is 1st video"thumbnail={"https://i.ytimg.com/vi/_l2iocqwOos/sddefault.jpg"} channelName="harsh mohan" viewCount="1.3M views . 18 hours ago" />;
-                   </div>
-               <div className="">
-               <VideoPreview title=" this is 1st video" channelName="harsh mohan" viewCount="1.3M views . 18 hours ago" />;
-                   
-               </div>
-               <div className="">
-               <VideoPreview title=" this is 1st video" channelName="harsh mohan" viewCount="1.3M views . 18 hours ago"/>;
-               </div>
-               <div className="">
-               <VideoPreview title=" this is 1st video"   channelName="harsh mohan" viewCount="1.3M views . 18 hours ago"/>;
-               </div>
-               <div className="">
-               <VideoPreview  title=" this is 1st video" channelName="harsh mohan" viewCount="1.3M views . 18 hours ago"/>;
-               </div>
-               <div className="">
-               <VideoPreview title=" this is 1st video" channelName="harsh mohan" viewCount="1.3M views . 18 hours ago"/>;
                </div>
                
-           </div>
+           
        </div>
 
 

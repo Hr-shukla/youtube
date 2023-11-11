@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import Header from "./Header";
-import SuggestedVideo from "./SuggestedVideo";
+import Videopvcom from "./Videopvcom";
 import "./VideoPage.css";
+import React, { useState } from 'react';
+
 import videos from "./video.json";
 function VideoPage(){
     const Params = useParams();
@@ -9,8 +11,47 @@ function VideoPage(){
     function  finderFunction(video){
         return video.id == id ;
     }
-
+     
+    
     const video = videos.find(finderFunction);
+
+
+    const [likes, setLikes] = useState(localStorage.getItem(id +"likes"));
+    const [dislikes, setDislikes] = useState(30);
+    const videoss = videos.find(finderFunction)
+    function onlike(){
+        if (likes == "true"){
+            localStorage.setItem(id + "_liked",false)
+            setLikes("false");
+        }
+        else{
+            localStorage.setItem(id + "_Unliked",true)
+            setLikes("true");
+        }
+    }
+    const handleDislike = () => {
+      setDislikes(dislikes + 1);
+    };
+    const isloggedId = localStorage.getItem("LoggedIn")
+    function onLogout(){
+        localStorage.setItem("LoggedIn",false);
+        window.location.href = "/";
+    }
+    function onSubscribe(){
+        if (subscribe == "true"){
+            localStorage.setItem(id + "_Subscribed",false)
+            setSubscribed("false");
+        }
+        else{
+            localStorage.setItem(id + "_Unsubscribed",true)
+            setSubscribed("true");
+        }
+    }
+    const [subscribe, setSubscribed] = useState(localStorage.getItem(id + "subscribe"));
+    
+
+
+
 return(
 
 <div className="">
@@ -31,17 +72,24 @@ return(
                             <div className="VCName">{video.channelName}</div>
                             <div className="VCSubs">{video.views}</div>
                         </div>
-                        <div className="VSubscriber"><p><center>Subscribe</center></p></div>
+                        <div className="VSubscriber"><p><b><center>Subscribe</center></b></p></div>
                     </div>
                     <div className="VLike">
 
                             <div className="VLike-1">
-                            <div className="VLike-1-1"></div><div className="VLike-1-2"></div>
+                            <div className="VLike-1-1" >
+                            <button className={ 
+                                    likes == "true" ? "likesButton" : "likedbutton"
+                                }onClick={onlike}><i class="fa-solid fa-thumbs-up"></i></button>
+                                
+                            </div><div className="VLike-1-2">
+                            <i class="fa-solid fa-thumbs-down"></i>
                             </div>
-                            <div className="VLike-2">2</div>
-                            <div className="VLike-3">3</div>
-                            <div className="VLike-4">4</div>
-                            <div className="VLike-5">5</div>
+                            </div>
+                            <div className="VLike-2"><i class="fa-solid fa-share"></i><b>Share</b>
+                            </div>
+                            <div className="VLike-3"><i class="fa-solid fa-scissors"></i><b>Clip</b></div>
+                            <div className="VLike-4"><b>Save</b></div>
                             
                     </div>
                    
@@ -51,24 +99,18 @@ return(
                 </div>
             </div>
             <div className="VSide">
-            {
-            videos.map(function(video){
-                return <SuggestedVideo 
-                title={video.title}
-                thumbnail={video.thumbnail.url}
-                channelName={video.channelName}
-                viewCount={video.views}
-                uploded={video.uploadedAt}
-                 />
-
-            })}
+           
             <div className="suggestions">
-            <SuggestedVideo />
-          <SuggestedVideo />
-          <SuggestedVideo />
-          <SuggestedVideo />
-          <SuggestedVideo />
-          <SuggestedVideo />
+            {videos.map(function (videoItem) {
+                        return (<Videopvcom
+                            title={videoItem.title}
+                            cname={videoItem.channelName}
+
+                            link={videoItem.thumbnail.url}
+                            ></Videopvcom>)
+                        })}
+
+           
         </div>
             </div>
            

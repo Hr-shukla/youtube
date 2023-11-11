@@ -30,7 +30,7 @@
 .VPlay{
     height: 95%;
     width: 95%;
-    background-color: chartreuse;
+    background-color: white;
     border-radius: 25px;
 }
 .iframe{
@@ -41,7 +41,7 @@
 .VExtra{
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 400px;
     
     background-color:white;
     
@@ -49,7 +49,7 @@
     
 }
 .VTitle{
-    background-color:green;
+    background-color:w;
     height: 50px;
     width: 95%;
     
@@ -57,15 +57,16 @@
 .VSubs{
     display: flex;
     background-color:white;
-    height: 60px;
+    height: 100px;
     width: 95%;
     justify-content: space-between;
     }
     .VChannel{
         display: flex;
         background-color:white;
+        justify-content: space-between;
         height: 100px;
-        width: 30%;
+        width: 25%;
             }
     .VLogo{
         background-color: pink;
@@ -85,11 +86,12 @@
         
     }
     .VSubscriber{
-        width: 130px;
+        width: 120px;
         height: 40px;
         border-radius: 20px;
-        background-color: aqua;
+        background-color: white;
         margin-top: 10px;
+        border: 2px solid black;
     }
     
     .VLike
@@ -97,7 +99,7 @@
         display: flex;
         background-color: white;
         height: 60px;
-        width: 45%;
+        width: 50%;
         align-items: center;
         justify-content: center;
         justify-content: space-between;
@@ -106,7 +108,7 @@
     }
      .VLike-1{
         width: 60px;
-        background-color: yellow;
+        background-color: white;
         height: 35px;
         width: 120px;
         border-radius: 15px;
@@ -115,7 +117,7 @@
     }
     .VLike-1-1{
         width: 60px;
-        background-color: yellow;
+        background-color: white;
         height: 35px;
         width: 60px;
         border: 2px solid black;
@@ -125,7 +127,7 @@
     }
     .VLike-1-2{
         width: 60px;
-        background-color: yellow;
+        background-color: white;
         height: 35px;
         width: 60px;
         border: 2px solid black;
@@ -136,27 +138,27 @@
     .VLike-2{
         text-align: center;
         width: 60px;
-        background-color: yellow;
+        background-color: white;
         height: 35px;
-        width: 55px;
+        width: 80px;
         border-radius: 15px;
         border: 2px solid black;
     }
     .VLike-3{
         text-align: center;
         width: 60px;
-        background-color: yellow;
+        background-color: white;
         height: 35px;
-        width: 65px;
+        width: 80px;
         border-radius: 15px;
         border: 2px solid black;
     }
     .VLike-4{
         text-align: center;
         width: 60px;
-        background-color: yellow;
+        background-color: white;
         height: 35px;
-        width: 55px;
+        width: 80px;
         border-radius: 15px;
         border: 2px solid black;
     }
@@ -169,10 +171,11 @@
         border: 2px solid black;
     }
     .VDescription{
-        background-color: pink;
-        height: 100px;
+        background-color: white;
+        height: 200px;
         width: 95%;
         border-radius: 25px;
+        border: 2px solid black;
     }
     
 .VSide{

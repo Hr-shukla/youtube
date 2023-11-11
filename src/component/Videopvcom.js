@@ -1,13 +1,13 @@
-
 import "./VideoPage.css"
-function SuggestedVideo(props) {
-  const title = props.title;
-  const cname = props.channelName;
-  const link = props.thumbnail.url;
-  const Dura = props.Dura;
-  
-   return (
-     
+
+function Videopvcom(props){
+const title = props.title;
+const cname = props.cname;
+const link = props.link;
+const Dura = props.Dura;
+
+
+return(
     <div class="video11">
     <div id="videe">
         <img src={link}
@@ -20,8 +20,6 @@ function SuggestedVideo(props) {
     </div>
 </div>
 );
-     
-   
- }
+}
 
- export default SuggestedVideo;
+export default Videopvcom;
